@@ -1,0 +1,20 @@
+.breadcrumbs {
+  padding: 20px 0;
+  .breadcrumbs-nav {
+    margin-bottom: 30px;
+  }
+  a {
+    color: $black;
+    @media (min-width:$bp3) {
+      &:hover {
+        color: $yellow;
+      }
+    }
+  }
+
+  h1 {
+    font-style: normal;
+    font-weight: 700;
+    @include fontz(30px, 10);
+  }
+}

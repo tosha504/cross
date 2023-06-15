@@ -1,0 +1,47 @@
+.banners-products {
+  padding: 50px 0;
+  .container  { 
+    padding: 50px 15px ;
+  }
+
+  h3 {
+    font-style: normal;
+    font-weight: 700;
+    @include fontz(20px,20);
+    margin-bottom: 30px;
+    line-height: 49px;
+  }
+  
+  .product-card {
+    position: relative;
+  }
+
+  .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    &-img, .product-card {
+      flex: 1 1 100%;
+
+      @media (min-width:$bp1) {
+        flex: 1 1 45%; 
+      }
+
+      @media (min-width:$bp2) {
+        flex: 1 1 20%; 
+      }
+    }
+    
+    &-img {
+      background: url(high-angle-avocados-tomatoes-peppers-tray.jpg);
+      border-radius: 8px;
+      display: flex;
+      background-color: $black;
+      img {
+        object-fit: cover;
+      }
+    }
+    
+
+  }
+}

@@ -1,0 +1,21 @@
+body {
+  &.woocommerce-shop {
+    .site-main {
+      padding: 50px 0;
+      
+      .woocommerce-ordering {
+        select {
+          border: none;
+          border-bottom: 1px solid $gray;
+          padding: 10px 5px;
+          font-family: $roboto;
+          outline:0px;
+          &:focus {
+            border-bottom: 2px solid $yellow;
+          }
+        }
+      }
+    }
+
+  }
+}

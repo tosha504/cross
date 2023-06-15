@@ -1,0 +1,130 @@
+.promo {
+  padding: 0 0 50px 0;
+  h3 {
+    padding: 25px 0;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 49px;
+  }
+  &__items{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    a {
+      color: $black;
+    }
+    .left {
+      flex: 1 0 100%;
+      @media (min-width:$bp3) {
+        flex: 1 0 40%;
+      }
+      @media (min-width:$bp1) {
+        flex: 1 0 20%;
+      }
+      .product-card {
+        position: relative;
+        border-radius: 8px;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &__image-wrap {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          a {
+            display: flex;
+            width: 100%;
+            img {
+              transition: 0.35s;
+              max-height: 100% !important;
+              height: 100%;
+              width: auto;
+              width: 100%;
+            }
+          }
+        }
+        
+        @media (min-width:$bp1) and (max-width:$bp2) {
+          flex-direction: row;
+        }
+        &__description {
+          gap: 5vh;
+          padding: 20px;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+          h6 {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            @include fontz(20px, 16);
+            line-height: 42px;
+            @media (min-width: 320px) and (max-width: $bp3) {
+              line-height: 1;
+              /* CSS */
+              
+            }
+          }
+
+          &_weight-quantity {
+            font-weight: 300;
+            @include fontz(16px, 4);
+            color: #7D7D7D;
+            line-height: 23px;
+          }
+          
+          .belt {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            &__regular, &__sale {
+              font-style: normal;
+              font-weight: 700;
+              @include fontz(16px, 6);
+              line-height: 28px;
+            } 
+
+            &__sale {
+              @include fontz(16px, 3);
+              line-height: 23px;
+              text-decoration-line: line-through;
+              color: rgba(0, 0, 0, 0.5);
+            }
+
+            .button {
+              transition: 0.35s;
+              // margin-left: auto;
+            }
+          }
+        }
+      }
+      
+    }
+
+    .right {
+      flex: 1 1 100%;
+      // background-color: red;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      @media (min-width:$bp2) {
+      gap: 20px;
+        flex: 1 0 40%;
+      }
+      li {
+        position: relative;
+        flex: 1 1 100%;
+        @media (min-width:$bp1) {
+        flex: 0 1 48%;
+
+        }
+        @media (min-width:$bp3) {
+          flex: 0 1 30%;
+        }
+       
+      }
+    }
+  }
+}

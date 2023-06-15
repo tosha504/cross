@@ -1,0 +1,63 @@
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&family=Roboto:wght@300;400;500;700;900&display=swap');
+$mon : 'Montserrat', sans-serif;
+$roboto: 'Roboto' , sans-serif;
+
+
+//Colors    
+$black:#000000;
+$white: #ffffff;
+$yellow : #F3C117;
+$gray: #EFEFEF;
+
+//break-points
+$bp1: 576px + 1;
+$bp2: 768px + 1;
+$bp3: 992px + 1;
+$bp4: 1200px + 1;
+$bp5: 1440px + 1;
+
+@mixin fontz($fmx,$fmn){
+    font-size: calc(#{$fmx} + (#{$fmn} * (100vw / 1920)));
+}
+
+@mixin line($lmx,$lmn){
+    line-height: calc(#{$lmx} + (#{$lmn} * (100vw / 1400)));
+}
+
+.button, .btn {
+    font-size: 14px !important;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.button {
+    border-radius: 8px;
+    color: $white !important;
+
+    
+    &__primary {
+    padding: 10px 20px;
+    background-color: $black;
+        @media (min-width:$bp3) {
+            &:hover {
+              background-color: $yellow;
+              color: $black;
+            }
+        }
+    }
+
+    &__secondary {
+        padding: 10px 20px;
+        background-color: $yellow;
+        border: 1px solid transparent;
+        @media (min-width:$bp3) {
+            &:hover {
+              background-color: $white;
+              border: 1px solid $white;
+              color: $black !important;
+            }
+        }
+    }
+}

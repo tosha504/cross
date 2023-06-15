@@ -1,0 +1,287 @@
+body {
+  
+  &.woocommerce-account {
+    .site-main {
+      padding: 50px 0;
+    }
+
+    .select,
+    .u-columns {
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+    }
+
+    .select {
+      @media (max-width:$bp1) {
+        justify-content: space-between;
+      }
+      h2 {
+        margin: 0 10%;
+        @media (max-width:$bp1) {
+          margin: 0 auto;
+        }
+      }
+
+      &__item {
+        transition: 0.35s;
+        @include fontz(16px, 6);
+        color: $white;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .button {
+        &__primary, &__secondary {
+          background-color: transparent;
+          color: $black;
+          border: 1px solid $black;
+          border-radius: 8px;
+        }
+
+        &__secondary {
+          background-color: $yellow;
+          border: 1px solid transparent;
+          @media (min-width:$bp3) {
+            &:hover {
+            }
+          }
+        }
+      }
+    }
+
+    .u-columns {
+      .col-1, .col-2 {
+        max-width: 600px;
+        @media (max-width:$bp4) {
+          max-width: 500px;
+        }
+        @media (max-width:$bp2) {
+          max-width: 400px;
+        }
+        flex: 1 1 100%;
+        display: flex;
+        flex-direction: column;
+      } 
+
+      .d-none {
+        display: none;
+      }
+    }
+
+    input[type="text"], input[type="email"],input[type="password"], textarea, input[type="tel"] {
+      width: 100%;
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 14px;
+      font-family: $roboto;
+      border-radius: 8px;
+    }
+
+    .woocommerce-form-row {
+      label {
+        font-size: 12px;
+        top: -10px;
+        left: 15px;
+        z-index: 1;
+        background: #fff;
+        padding: 0 10px;
+      }
+    } 
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+
+      button {
+        margin: 10px auto;
+        transition: 0.35s;
+        background-color: $black;
+        @media (min-width:$bp3) {
+          &:hover {
+            background-color: $yellow;
+          }
+        }
+      }
+    }
+
+    .required {
+      color: red;
+    }
+
+    .lost_password {
+      a {
+        color: $black;
+        @media (min-width:$bp3) {
+          &:hover {
+            border-bottom: 1px solid $black;
+          }
+        }
+      }
+    }
+
+    .woocommerce-privacy-policy-link {
+      color: $yellow;
+    }
+
+    &.logged-in {
+      .woocommerce {
+        display: flex;
+        flex-wrap: wrap;
+
+        .form-row {
+          input {
+            max-width: 50%;
+          }
+        }
+
+        .title {
+          &::after {
+            content: '';
+            position: static;
+          }
+        }
+
+        .u-columns {
+          display: block;
+        }
+
+        .woocommerce-MyAccount-navigation {
+          flex: 1 1 20%;
+          a {
+            color: $black;
+            @media (min-width:$bp3) {
+              &:hover {
+                color: $yellow;
+              }
+            }
+          }
+          li {
+            margin: 10px 0;
+            &.is-active {
+              a {
+                color: $yellow;
+              }
+            }
+          }
+          @media (max-width:$bp1) {
+            flex: 1 1 100%;
+          }
+        }
+
+        .woocommerce-Message--info {
+          .button {
+            background-color: $black;
+          }
+        }
+
+        .woocommerce-MyAccount-content {
+         
+          flex: 1 1 80%;
+          padding: 0 30px;
+          a {
+            color: $yellow;
+          }
+          .woocommerce-address-fields__field-wrapper{
+            display: flex;
+            flex-wrap: wrap;
+
+            #billing_address_2_field {
+              .woocommerce-input-wrapper {
+                margin-top: 32px;
+              }
+            }
+
+            p {
+              flex: 1 1 45%;
+              @media (max-width:$bp3) {
+                flex: 1 1 100%;
+              }
+              input[type="text"], input[type="email"],input[type="password"],input[type="tel"] {
+                max-width: 100%;
+              }
+
+              .select2-selection--single {
+                display: flex;
+                align-items: center;
+                height: 40px;
+                border: 1px solid #000;
+                position: relative;
+                font-size: 14px;
+                .select2-selection__rendered {
+                  font-family: $roboto;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                }
+                .select2-selection__arrow {
+                  position: absolute;
+                  top: 50%;
+                  transform: translateY(-50%);
+                }
+              }
+            }
+          }
+
+          @media (max-width:$bp1) {
+            flex: 1 1 100%;
+            padding: 0;
+          }
+          button {
+            color:$white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: $roboto;
+            border: 1px solid transparent;
+            text-transform: uppercase;
+            margin: 10px;
+            transition: 0.35s;
+            background-color: $black;
+            @media (min-width:$bp3) {
+              &:hover {
+                background-color: $yellow;
+                border: 1px solid $yellow;
+              }
+            }
+
+            .woocommerce-Addresses {
+              margin-bottom: 20px;
+            } 
+          }
+        }
+      }
+    }
+      
+    .woocommerce-EditAccountForm {
+      display: flex;
+      flex-wrap: wrap;
+      // background-color: red;
+      input[type="text"], input[type="email"],input[type="password"],input[type="tel"] {
+        max-width: 100% !important;  
+        
+      }
+      p {
+        flex: 1 1 45%;
+        &:last-child {
+          flex: 1 1 100%;
+        }
+      }
+    }
+  }
+}
+
+#use_moneybox {
+  width: 20%;
+  padding: 10px;
+  border-radius: 40px;
+  @media (max-width:$bp2) {
+    width:30%;
+    max-width: 80px;
+  }
+}
+

@@ -1,0 +1,69 @@
+.bestsellers {
+  background:$white;
+  background: linear-gradient(0deg, $white 27%, $black 27%);
+  color: $white;
+  padding: 25px 0;
+  @media (min-width:$bp3) {
+    padding: 50px 0;
+  }
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  .anim {
+    position: absolute;
+    z-index: 0;
+    animation: slide 10s linear infinite;
+    @keyframes slide {
+      0% {
+        transform:translateX(100%)
+      }
+      100% {
+        transform:translateX(-110%)
+      }
+    }
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    @media (max-width:$bp3) {
+      flex-wrap: wrap;
+      gap: 50px;
+    }
+  }
+  
+  &__left {
+    position: relative;
+    z-index: 2;
+    flex: 1 1 45%;
+    h2 {
+      font-style: normal;
+      font-weight: 700;
+      @include fontz(40px, 50);
+      line-height: 122px;
+    }
+
+    p {
+      @include fontz(20px, 10);
+      line-height: 49px;
+      margin-bottom: 20px;
+    }
+
+    .wrap-button {
+      text-align: start;
+      a {
+        @include fontz(16px, 10 );
+      }
+    }
+  }
+
+  &__right {
+    position: relative;
+    flex: 1 1 50%;
+
+    .size-full {
+      position: absolute;
+      top: 20%;
+      left: -20%; 
+    }
+  }
+}

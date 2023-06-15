@@ -1,0 +1,48 @@
+.single-post {
+  .container {
+    .nav-links {
+      @media (min-width:$bp3) {
+        width: 60vw;
+        margin: 0 auto;
+      }
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .news {
+      padding: 20px 0;
+      @media (min-width:$bp3) {
+        padding: 50px 0;
+      }
+      h5 {
+        flex: 1 1 100%;
+        font-style: normal;
+        font-weight: 700;
+        @include fontz(27px, 13);
+        line-height: 49px;
+      }
+      border-top: 1px solid #BEBEBE;     
+    }
+  }
+
+  article {
+    font-family: $mon;
+    .thumb-img {
+      margin-bottom: 50px;
+    }
+    .wrap {
+      @media (min-width:$bp3) {
+        width: 60vw;
+        margin: 0 auto;
+      }
+      h2, h3, h4, h5, h6{
+        padding: 10px 0 20px;
+      }
+      p {
+        padding: 10px 0;
+      }
+
+      ;
+    }
+  }
+}

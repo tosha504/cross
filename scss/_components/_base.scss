@@ -1,0 +1,111 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,body{
+  @include fontz(14px ,2);
+	height: 100%;
+	width: 100%;
+  position: relative;
+  font-weight: 300;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	color: $black;
+  font-family: $roboto;
+  margin: 0 !important;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: $mon;
+  font-weight: 600;
+}
+
+.fixed-page {
+  overflow: hidden;
+}
+
+.wrapper{
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.site-main{
+	flex: 1 1 100%;
+}
+.container {
+  // max-width: 1600px;
+  max-width: 100vw;
+  padding: 0 15px;
+  width: 100%;
+  margin: 0 auto;
+  
+  @media (min-width:$bp4) {
+    // max-width: 90vw;
+    max-width: 1200px;
+  }
+  
+  @media (max-width:$bp2) {
+    padding: 0 30px;
+  }
+}
+ul {
+  list-style: none;
+}
+a,
+a:active,
+a:hover {
+  outline: none;
+  text-decoration: none;
+  transition: 0.3s;
+}
+button,
+button:active,
+button:focus,
+button:hover,
+input,
+input:active,
+input:focus,
+input:hover,
+textarea,
+textarea:focus {
+  outline: none;
+}
+textarea {
+  resize: none;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+  &.size-thumbnail {
+    width: 100%;
+  }
+}
+
+.product-card {
+  .button {
+    
+    &::before {
+      transition: 0.35s;
+    }
+  }
+  @media (min-width:$bp3) {
+    &:hover {
+      .button, .btn {
+        background-color: $yellow !important;
+        color: $black !important;
+        &::before {
+          filter: invert(100%) sepia(77%) saturate(534%) hue-rotate(2deg) brightness(106%) contrast(107%);
+
+        }
+      }
+    }
+}
+  
+}
