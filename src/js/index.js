@@ -41,7 +41,9 @@
   }
   jQuery(document).on("click", '.cart-qty', function (e) {
     e.preventDefault();
-    jQuery('.cart-qty').attr('disabled', 'disabled');
+    if (jQuery(body).hasClass('woocommerce-checkout')) {
+      jQuery('.cart-qty').attr('disabled', 'disabled');
+    }
     var input = jQuery(this).parent().find('.input-text.qty.text');
     var input_val = parseInt(input.val());
     if (jQuery(this).hasClass('plus')) {

@@ -147,10 +147,12 @@ body {
           input::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
+           
           }
   
           /* Firefox */
           input[type=number] {
+            pointer-events: none;
             -moz-appearance: textfield;
           }
         }
@@ -210,11 +212,38 @@ body {
           font-size: 14px;
         }
 
+        .brand {
+          @media (min-width:$bp3) {
+            a {
+              &:hover {
+                box-shadow: 8px 8px 4px 0px rgba(66, 68, 90, 1);
+              }
+            }
+          }
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            min-height: 70px;
+            box-shadow: 0 0 2px rgba(0,0,0,0.12);
+            img {
+              object-fit: cover;
+              max-width: 90px;
+              max-height: 50px;
+              height: 100%;
+            }
+          }
+
+        }
+
         .product_title {
+          flex: 1 1 70%;
           font-family: 'Montserrat';
           font-style: normal;
           font-weight: 700;
-          @include fontz(20px, 15);
+          @include fontz(20px, 14);
+          line-height: 1.2;
           color: #000000;
         }
 

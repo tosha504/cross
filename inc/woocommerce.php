@@ -95,11 +95,12 @@ function woocommerce_template_loop_custom_product_thumbnail($permalink = null)
 
   if ($regular_price && $sale_price) {
     $percentage = round((($regular_price - $sale_price) / $regular_price) * 100);
-    $percentage_block = !empty($percentage) ? "<sapn class='percentage'>-{$percentage}%</sapn>" : '';
+    $percentage_block = "<sapn class='percentage'>-{$percentage}%</sapn>";
     $percentage_block_render = "<span class='belt__wrap_regular'>{$symbol}{$sale_price}</span>
     <span class='belt__wrap_sale'>{$symbol}{$regular_price}</span>";
   } else {
     $percentage_block_render = "<span class='belt__wrap_regular regular'>{$symbol}{$regular_price}</span>";
+    $percentage_block = '';
   }
   $new_days = 7;
   $post_date = $product->get_date_created();
@@ -178,6 +179,34 @@ add_action('woocommerce_single_product_summary', 'woocommerce_template_single_cu
 // }
 
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);
+add_action('woocommerce_single_product_summary', 'prod', 5);
+
+function prod()
+{
+  function get_product_brand($product_id)
+  {
+    $brand = '';
+
+    // Get product object
+    $product = wc_get_product($product_id);
+
+    // Get brand attribute
+    $terms = wc_get_product_terms($product->get_id(), 'pa_brand');
+
+    // var_dump($terms);
+    $logo_brands = get_field('logo_brands', $terms[0]);
+    // var_dump(get_term_link($terms[0]->slug, $terms[0]->taxonomy));
+    echo '<div class="brand"><a href="' . get_term_link($terms[0]) . '">' . wp_get_attachment_image($logo_brands, 'thumbnail') . '</a></div>';
+
+    return $brand;
+  }
+  // Usage example
+  $product_id = get_the_id(); // Replace with your product ID
+  $brand = get_product_brand($product_id);
+
+  // Display product brand
+  echo $brand;
+}
 
 
 // Remove the Product SKU from Product Single Page
@@ -246,8 +275,6 @@ function group()
   }</style><div class="group">' . apply_filters('the_content', get_the_content()) . '</div>';
 }
 
-
-
 function custom_cart_button_Shop_Page($text, $product)
 {
   if ($product->is_type('variable')) {
@@ -257,25 +284,11 @@ function custom_cart_button_Shop_Page($text, $product)
 }
 add_filter('woocommerce_product_add_to_cart_text', 'custom_cart_button_Shop_Page', 9, 2);
 
-
-
-
 add_filter('woocommerce_product_single_add_to_cart_text', 'woocommerce_custom_single_add_to_cart_text');
 function woocommerce_custom_single_add_to_cart_text()
 {
   return __('Buy', 'woocommerce');
 }
-// put this in functions.php, it will produce code before the form
-// add_action('woocommerce_review_order_before_payment', 'show_cart_summary', 9);
-
-// // gets the cart template and outputs it before the form
-// function show_cart_summary()
-// {
-//   wc_get_template_part('cart/cart');
-//   // var_dump(wc_get_template_part());
-//   wc_get_template_part('cart/cart-totals');
-// }
-
 
 add_action('woocommerce_before_quantity_input_field', function () {
   echo '<button class="cart-qty minus">-</button>';
@@ -309,11 +322,13 @@ function custom_variation_buttons()
 {
   global $product;
 
+
   if ($product->is_type('variable')) {
 
     $attributes = $product->get_variation_attributes();
 
     if (!empty($attributes)) {
+
       foreach ($attributes as $attribute_name => $options) {
         echo '<div class="selects woocommerce-variation-' . sanitize_title($attribute_name) . '">';
         echo '<h4>' . wc_attribute_label($attribute_name) . '</h4><div class="selects__buttons">';
