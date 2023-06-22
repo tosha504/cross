@@ -265,7 +265,6 @@ class AWP_Menu_Walker extends Walker_Nav_Menu
 		$output .= "<li class='" .  implode(" ", $item->classes) . "'>";
 
 		// $output .= '<div class="transition-div"></div>'; //Put your content here
-		// var_dump($args->walker->has_children);
 		if ($item->url && $item->url != '#') {
 			$output .= '<a href="' . $item->url . '">';
 		} else {

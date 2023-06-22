@@ -110,6 +110,18 @@
       }
     }
   });
+
+  console.log( jQuery('.letters li a'));
+
+  jQuery('.letters li a').on('click', function (e) {
+    console.log(e);
+  })
   
+  jQuery('.result__wrap-btn a').on('click', function (e) {
+    e.preventDefault()
+    var scrollTop = jQuery(window).scrollTop();
+    if(scrollTop > 200)
+    jQuery("html, body").animate({ scrollTop:  document.body.scrollTop = 0 }, 1500);
+  });
 
 })( jQuery );
