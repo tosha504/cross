@@ -193,10 +193,9 @@ function prod()
     // Get brand attribute
     $terms = wc_get_product_terms($product->get_id(), 'pa_brand');
 
-    // var_dump($terms);
-    $logo_brands = get_field('logo_brands', $terms[0]);
+    $logo_brands = !empty($terms) ? get_field('logo_brands', $terms[0]) : "";
     // var_dump(get_term_link($terms[0]->slug, $terms[0]->taxonomy));
-    if ($logo_brands) echo '<div class="brand"><a href="' . get_term_link($terms[0]) . '">' . wp_get_attachment_image($logo_brands, 'thumbnail') . '</a></div>';
+    if (!empty($logo_brands)) echo '<div class="brand"><a href="' . get_term_link($terms[0]) . '">' . wp_get_attachment_image($logo_brands, 'thumbnail') . '</a></div>';
 
     return $brand;
   }
