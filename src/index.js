@@ -3,7 +3,8 @@
   console.log('ready');
   const burger = jQuery( '.header__burger span' ),
   body = jQuery( 'body' ),
-  nav = jQuery( '.header__mobile' );
+  nav = jQuery( '.header__mobile' ),
+  hash =  window.location.hash;
 
   burger.on( 'click', function ( ) {
     burger.toggleClass( 'active' );
@@ -111,17 +112,38 @@
     }
   });
 
-  console.log( jQuery('.letters li a'));
-
-  jQuery('.letters li a').on('click', function (e) {
-    console.log(e);
+  jQuery('a.scroll').on('click', function (e) {
+    const target = jQuery(this).attr('href');
+    jQuery("html, body").animate({ scrollTop: jQuery(target).offset().top - jQuery(".header").height() * 2 }, 1000); 
   })
   
-  jQuery('.result__wrap-btn a').on('click', function (e) {
-    e.preventDefault()
+  jQuery('.result__wrap-btn').on('click', function (e) {
     var scrollTop = jQuery(window).scrollTop();
-    if(scrollTop > 200)
-    jQuery("html, body").animate({ scrollTop:  document.body.scrollTop = 0 }, 1500);
+    if(scrollTop > 40)
+    jQuery("html, body").animate({ scrollTop:  document.body.scrollTop = 0 }, 1000, function () {
+      if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href.split('#')[0]);
+      } else {
+        window.location.hash = '';
+      }
+    });
   });
+
+  jQuery(window).scroll(function() {
+    var scrollTop = jQuery(window).scrollTop();
+    jQuery('.letters').css({'top':`${jQuery(".header").height() +10}px`, 'z-index':'1'})
+  });
+
+  if(jQuery( window ).width() < 768) {
+    jQuery('.result__title').on('click', function (e) {
+      jQuery(this).toggleClass('active').siblings('ul').slideToggle()
+      if(jQuery(this).parent().siblings().children('.result__title').hasClass('active')) {
+        jQuery(this).parent().siblings().children('.result__title').removeClass('active')
+        jQuery(this).parent().siblings().children('ul').slideUp()
+      }
+    })
+    jQuery('.result__content').css('display', 'none')
+  }
+ 
 
 })( jQuery );
