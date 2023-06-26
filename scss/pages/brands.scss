@@ -8,30 +8,35 @@ body {
       }
 
       .letters {
-        padding: 20px 0 50px;
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
-        li {
-          a {
-            border-radius: 8px;
-            width: 50px;
-            height: 50px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid $gray;
-            text-transform: uppercase;
-            font-size: 16px;
-            color: $black;
-            @media (min-width:$bp3) { 
-              &:hover {
-                background-color: $yellow;
-                border: 1px solid $yellow;
-                cursor: pointer;
-                color: $white;
+        display: none;
+        @media (min-width:$bp2) {
+          padding: 20px 0 20px;
+          display: flex;
+          gap: 20px;
+          justify-content: center;
+          flex-wrap: wrap;
+          position: sticky;
+          background-color: $white;
+          li {
+            a {
+              border-radius: 8px;
+              width: 50px;
+              height: 50px;
+              font-weight: bold;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 1px solid $gray;
+              text-transform: uppercase;
+              font-size: 16px;
+              color: $black;
+              @media (hover: hover) { 
+                &:hover {
+                  background-color: $yellow;
+                  border: 1px solid $yellow;
+                  cursor: pointer;
+                  color: $white;
+                }
               }
             }
           }
@@ -42,7 +47,7 @@ body {
         border-top: 1px solid $gray;
         display: flex;
         flex-wrap: wrap;
-        padding: 20px 0;
+        padding: 10px 0;
         @media (min-width:$bp2) {
           padding: 20px 50px;
         }
@@ -51,28 +56,62 @@ body {
           font-weight: 700;
           font-size: 20px;
           flex: 1 1 100%;
+          @media (max-width:$bp2) {
+            position: relative;
+            &::after {
+              content: '';
+              position: absolute;
+              right: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              max-width: 100%;
+              max-height: 100%;
+              transition: .35s ease-in-out;
+              margin-left: 10px;
+              width: 0;
+              height: 0;
+              border-color: transparent transparent $black;
+              border-style: solid;
+              border-width: 0 12px 12px;
+              transform: rotate(0deg);
+            }
+
+            &.active {
+              &::after {
+                transform: rotate(180deg);
+              }
+            }
+          }
           @media (min-width:$bp2) {
             flex: 1 1 20%;
           }
         }
 
         &__content {
-          padding: 20px 0;
           flex: 1 1 100%;
+          padding: 10px 0;
           display: flex;
-          gap: 20px;  
           flex-wrap: wrap;
+          gap: 5px;
           @media (min-width:$bp2) {
+            padding: 20px 0;
+            gap: 20px;  
             flex: 1 1 80%;
             padding:0 0 20px 0;
           }
           &_item {
-            flex: 1 1 46%;
+            flex: 1 1 100%;
+            @media (min-width:$bp2) {
+              flex: 1 1 46%;
+            }    
             @media (min-width:$bp2) {
               flex: 0 1 30%;
             }
             a {
               color: $black;
+              @media (max-width:$bp3) { 
+                font-weight: bold;
+              }
               @media (min-width:$bp3) {
                 &:hover {
                   color: $yellow;
@@ -83,13 +122,24 @@ body {
         }
 
         &__wrap-btn {
-          flex: 1 1 100%;
-          text-align: end;
-          a {
-            margin-left: auto;
-            color: $black;
-            font-weight: 700;
-            text-transform: uppercase;
+          display: none;
+          @media (min-width:$bp2) {
+            display: block;
+            flex: 1 1 100%;
+            text-align: end;
+            span {
+              margin-left: auto;
+              color: $black;
+              font-weight: 700;
+              text-transform: uppercase;
+              transition: 0.35s;
+              @media (hover: hover) {
+                &:hover {
+                  cursor: pointer;
+                  color: $yellow;
+                }
+              }
+            }
           }
         }
        

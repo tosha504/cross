@@ -30,20 +30,17 @@ function get_brand_groups()
 	<div class="container">
 		<h1><?= get_the_title(); ?></h1>
 		<?php
-		$chars = range('a', 'z');
-		$letter = '';
-		foreach ($chars as $key => $char) {
-			$letter .= '<li><a href="#' . $char . '">' . $char . '</a></li>';
+		$brand_groups = get_brand_groups();
+		foreach ($brand_groups as $group) {
+			$letter .= '<li><a class="scroll" href="#'  . strtolower($group->letter) . '">' . $group->letter . '</a></li>';
 		}
 
 		echo <<<HTML
 			<ul class="letters">
-				<li><a href="#0-9">0-9</a></li>
 				{$letter}
 			</ul>
 		HTML;
 
-		$brand_groups = get_brand_groups();
 		// $terms = get_terms("pa_brand");
 		foreach ($brand_groups as $group) {
 			$group_atts = json_decode($group->jsondata);
@@ -51,15 +48,15 @@ function get_brand_groups()
 			foreach ($group_atts as $att_key => $att_val) {
 				$current_group_html .= '<li class="result__content_item"><a href="http://cross/brand/' . $att_key . '">' . $att_val . '</a></li>';
 			}
-
+			$s = strtolower($group->letter);
 			echo <<<HTML
-				<div class="result" id={$group->letter}>
+				<div class="result" id={$s}>
 					<p class="result__title">$group->letter</p>
 					<ul class="result__content">
 						$current_group_html
 					</ul>
 					<div class="result__wrap-btn">
-						<a href="#back">back to top</a>
+						<span>back to top</span>
 					</div>
 				</div>
 			HTML;
