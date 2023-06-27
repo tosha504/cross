@@ -20,6 +20,16 @@
     @media (max-width:$bp4) {
       display: none;
     }
+    a {
+      @media (hover:hover) {
+        &:hover {
+          color: $yellow;
+        }
+      }
+    }
+    [aria-current] {
+      color: $yellow;
+    }
   }
 
   &__right-navigation {

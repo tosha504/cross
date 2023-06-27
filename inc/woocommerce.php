@@ -341,3 +341,19 @@ function custom_variation_buttons()
     }
   }
 }
+
+add_action('woocommerce_after_my_account', 'custom_navigation_menu_account_page');
+function custom_navigation_menu_account_page()
+{
+  $link = get_site_url() . '/my-accountl';
+
+
+
+  echo
+  '<div class="custom-nav-link">
+    <a class="orders" href="' . $link . '/orders">' . __('Orders', 'woocommerce') . '</a>
+    <a class="address" href="' . $link . '/edit-address">' . __('Address', 'woocommerce') . '</a>
+    <a class="edit-account" href="' . $link . '/edit-account/">' . __('Account details', 'woocommerce') . '</a>
+    <a class="log-out" href="' . wp_logout_url(get_permalink(wc_get_page_id('myaccount'))) . '">' . __('Log Out', 'woocommerce') . '</a>
+  </div>';
+}

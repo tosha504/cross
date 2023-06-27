@@ -1,11 +1,9 @@
 <?php
 /*
-Template Name:  Brand Template Name
+Template Name: Brand 
 */
 
-
 get_header();
-
 
 function get_brand_groups()
 {
@@ -31,6 +29,7 @@ function get_brand_groups()
 		<h1><?= get_the_title(); ?></h1>
 		<?php
 		$brand_groups = get_brand_groups();
+		$letter = '';
 		foreach ($brand_groups as $group) {
 			$letter .= '<li><a class="scroll" href="#'  . strtolower($group->letter) . '">' . $group->letter . '</a></li>';
 		}
@@ -46,7 +45,7 @@ function get_brand_groups()
 			$group_atts = json_decode($group->jsondata);
 			$current_group_html = '';
 			foreach ($group_atts as $att_key => $att_val) {
-				$current_group_html .= '<li class="result__content_item"><a href="http://cross/brand/' . $att_key . '">' . $att_val . '</a></li>';
+				$current_group_html .= '<li class="result__content_item"><a href="' . get_site_url() . '/brand/' . $att_key . '">' . $att_val . '</a></li>';
 			}
 			$s = strtolower($group->letter);
 			echo <<<HTML

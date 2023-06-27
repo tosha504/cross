@@ -3,6 +3,73 @@ body {
   &.woocommerce-account {
     .site-main {
       padding: 50px 0;
+
+      .custom-nav-link {
+        padding: 20px 0;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        a {
+          flex: 0 1 100%;
+          @media (min-width:$bp2) {
+            flex: 0 1 47%;
+          }
+          @media (min-width:$bp3) {
+            flex: 0 1 30%;
+          }
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          padding: 20px;
+          box-shadow: 0 0 4px rgba(0,0,0,0.18);
+          text-decoration: none;
+          transition: all .25s ease;
+          color: $black !important;
+          @media (hover:hover) {
+            &:hover {
+              color: $yellow !important;
+              box-shadow: 0 0 4px $yellow;
+              &::before {
+                background-color: red;
+                filter: invert(76%) sepia(76%) saturate(670%) hue-rotate(349deg) brightness(100%) contrast(91%);
+              }
+            }
+          }
+          &::before {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 50px;
+            transition: all .25s ease;
+          }
+
+          &.orders {
+            &::before {
+              background: url(../assets/acount-items/list.svg)no-repeat center/cover;
+            }
+          }
+
+          &.address {
+            &::before {
+              background: url(../assets/acount-items/address.svg)no-repeat center/cover;
+            }
+          }
+
+          &.edit-account {
+            &::before {
+              background: url(../assets/acount-items/user.svg)no-repeat center/cover;
+            }
+          }
+
+          &.log-out {
+            &::before {
+              background: url(../assets/acount-items/log-out.svg)no-repeat center/cover;
+            }
+          }
+        }
+      }
     }
 
     .select,
