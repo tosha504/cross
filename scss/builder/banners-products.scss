@@ -20,6 +20,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+   
     &-img, .product-card {
       flex: 1 1 100%;
 
@@ -37,6 +38,7 @@
       border-radius: 8px;
       display: flex;
       background-color: $black;
+      overflow: hidden;
       img {
         object-fit: cover;
       }

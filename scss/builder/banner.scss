@@ -17,7 +17,7 @@
     line-height: 49px;
     @include fontz(25px, 15);
     @media (min-width:$bp2) {
-      padding: 50px 0 50px 50px;
+      padding: 50px 0;
     }
   }
 

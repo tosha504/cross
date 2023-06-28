@@ -82,18 +82,6 @@
 						)
 					);
 					?>
-					<?php
-					// $social_media = get_field('social_media', 'options');
-					if ($social_media) { ?>
-						<ul class="header__social">
-							<?php foreach ($social_media as $key => $social) {
-								// var_dump($social);
-								$icon_social = wp_get_attachment_image($social['icon'], 'full');
-
-								echo "<li><a href='{$social['link']['url']}' target='__blank'>{$icon_social}</a></li>";
-							} ?>
-						</ul>
-					<?php } ?>
 				</nav><!-- #right-navigation -->
 				<ul class="header__assets">
 					<li><a href='#'><?= '<img src="' . get_template_directory_uri() . '/assets/search.svg" alt="search"/>' ?></a></li>

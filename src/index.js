@@ -164,12 +164,10 @@
         if(a_href == hash){
           jQuery(this).addClass('active')
         }
-    });
+      });
     }
   }
   
-  
   jQuery('.letters').css({'top':`${jQuery(".header").height() +10}px`, 'z-index':'1'})
-  
   
 })( jQuery );

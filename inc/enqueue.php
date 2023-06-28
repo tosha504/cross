@@ -15,12 +15,6 @@ if (!function_exists('cross_scripts')) {
 		// Custom JS
 		wp_enqueue_script('cross_functions', $theme_uri . '/src/index.js', ['jquery'], time(), true);
 
-		// wp_localize_script('cross_functions', 'localizedObject', [
-		// 	'ajaxurl' => admin_url('admin-ajax.php'),
-		// 	'nonce'   => wp_create_nonce('ajax_nonce'),
-		// ]);
-
-
 		if (is_checkout()) {
 			wp_enqueue_script('checkout_script', get_template_directory_uri() . ('/src/add_quantity.js'), array(), false, true);
 			$localize_script = array(
