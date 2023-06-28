@@ -49,7 +49,7 @@ function get_brand_groups()
 			}
 			$s = strtolower($group->letter);
 			echo <<<HTML
-				<div class="result" id={$s}>
+				<div class="result" id="{$s}">
 					<p class="result__title">$group->letter</p>
 					<ul class="result__content">
 						$current_group_html

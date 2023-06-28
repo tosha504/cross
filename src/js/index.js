@@ -1,8 +1,10 @@
+function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
 (function () {
   console.log('ready');
   var burger = jQuery('.header__burger span'),
     body = jQuery('body'),
     nav = jQuery('.header__mobile'),
+    scroll_brand_btn = jQuery('a.scroll'),
     hash = window.location.hash;
   burger.on('click', function () {
     burger.toggleClass('active');
@@ -95,8 +97,13 @@
       }
     }
   });
-  jQuery('a.scroll').on('click', function (e) {
+  scroll_brand_btn.on('click', function (e) {
     var target = jQuery(this).attr('href');
+    jQuery(e.target).addClass('active');
+    if (jQuery(e.target).parent().siblings().children().hasClass('active')) {
+      jQuery(e.target).parent().siblings().children().removeClass('active');
+    }
+    ;
     jQuery("html, body").animate({
       scrollTop: jQuery(target).offset().top - jQuery(".header").height() * 2
     }, 1000);
@@ -107,20 +114,15 @@
       scrollTop: document.body.scrollTop = 0
     }, 1000, function () {
       if (window.history.replaceState) {
+        scroll_brand_btn.removeClass('active');
         window.history.replaceState(null, null, window.location.href.split('#')[0]);
       } else {
-        window.location.hash = '';
+        '', _readOnlyError("hash");
       }
     });
   });
-  jQuery(window).scroll(function () {
-    var scrollTop = jQuery(window).scrollTop();
-    jQuery('.letters').css({
-      'top': "".concat(jQuery(".header").height() + 10, "px"),
-      'z-index': '1'
-    });
-  });
   if (jQuery(window).width() < 768) {
+    jQuery('.result__content').css('display', 'none');
     jQuery('.result__title').on('click', function (e) {
       jQuery(this).toggleClass('active').siblings('ul').slideToggle();
       if (jQuery(this).parent().siblings().children('.result__title').hasClass('active')) {
@@ -128,6 +130,32 @@
         jQuery(this).parent().siblings().children('ul').slideUp();
       }
     });
-    jQuery('.result__content').css('display', 'none');
   }
+  if (hash) {
+    if (jQuery(window).width() < 768) {
+      var p = function p(hash) {
+        jQuery(hash).children('.result__title').addClass('active');
+        jQuery(hash).children('ul').slideDown();
+      };
+      jQuery("html, body").animate({
+        scrollTop: jQuery(hash).offset().top - jQuery(".header").height() - 20,
+        "function": p(hash)
+      }, 1000);
+    } else {
+      jQuery("html, body").animate({
+        scrollTop: jQuery(hash).offset().top - jQuery(".header").height() * 2
+      }, 1000);
+      scroll_brand_btn.each(function () {
+        var a_href = jQuery(this).attr('href');
+        console.log(a_href == hash);
+        if (a_href == hash) {
+          jQuery(this).addClass('active');
+        }
+      });
+    }
+  }
+  jQuery('.letters').css({
+    'top': "".concat(jQuery(".header").height() + 10, "px"),
+    'z-index': '1'
+  });
 })(jQuery);

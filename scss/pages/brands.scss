@@ -30,6 +30,12 @@ body {
               text-transform: uppercase;
               font-size: 16px;
               color: $black;
+              &.scroll {
+                &.active {
+                  background-color: $yellow;
+                  color: $white;
+                }
+              }
               @media (hover: hover) { 
                 &:hover {
                   background-color: $yellow;
@@ -90,9 +96,9 @@ body {
         &__content {
           flex: 1 1 100%;
           padding: 10px 0;
-          display: flex;
           flex-wrap: wrap;
           gap: 5px;
+          display: flex;
           @media (min-width:$bp2) {
             padding: 20px 0;
             gap: 20px;  
