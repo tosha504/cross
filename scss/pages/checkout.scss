@@ -338,7 +338,6 @@ body {
                         }
                       }
 
-                     
                       input::-webkit-outer-spin-button,
                       input::-webkit-inner-spin-button {
                         -webkit-appearance: none;
@@ -347,6 +346,7 @@ body {
 
                       /* Firefox */
                       input[type=number] {
+                        pointer-events: none;
                         -moz-appearance: textfield;
                       }
                     }

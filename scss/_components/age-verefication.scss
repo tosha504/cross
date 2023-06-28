@@ -1,0 +1,60 @@
+.age-verefication {
+  display: none;
+  position: fixed;
+  font-family: $mon;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000085;
+  z-index: 99999;
+
+  &__content {
+    background-color: $white;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+    gap: 10px;
+    justify-content: center;
+    max-width: 90vw;
+    @media (min-width:$bp2) {
+      max-width: 500px;
+    }
+    * {
+      flex: 0 1 100%;
+      text-align: center;
+    }
+    p {
+      font-weight: normal;
+      &:first-child {
+        font-weight: 600;
+        font-size: 20px;
+      }
+
+      &:nth-child(2) {
+        padding-top: 10px;
+        border-top: 1px solid $yellow;
+        span {
+          font-weight: 700;
+          color: red;
+        }
+      }
+    }  
+  }
+
+  &__buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    .button {
+      max-width: 150px;
+    }
+  }
+}
