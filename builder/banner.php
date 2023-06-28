@@ -16,7 +16,7 @@ $title = !empty(get_sub_field('title')) ? '<h1>' . get_sub_field('title') . '</h
 $banner_products = get_sub_field('banner_products'); ?>
 <!-- Banner Start -->
 <section class="banner" <?php if ($background_image) {
-                          echo 'style="background-image: url(' . wp_get_attachment_image_url($background_image, 'full') . ');  background-size: 50% auto;background-repeat: no-repeat;background-position: right;"';
+                          echo 'style="background-image: url(' . wp_get_attachment_image_url($background_image, 'full') . ');background-repeat: no-repeat;background-position: right;"';
                         } ?>>
   <div class="container">
     <?php echo $image . $title;
