@@ -6,12 +6,10 @@
     padding: 50px 0;
     background-size: 100% auto;
   }
-  @media (min-width:$bp3) {
+  @media (min-width:$bp4) {
     background-size: 75% auto;
   }
-  @media (max-width:$bp3) {
-    background-size: 100% auto;
-  }
+  
   @media (max-width:$bp2) {
     background-size:  0% !important; 
   }
