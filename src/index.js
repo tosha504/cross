@@ -206,8 +206,9 @@
 
   if( getCookie('ageVerification') !== 'submited'){ 
     jQuery('.age-verefication').css('display', 'block')
+    jQuery("body").addClass('fixed-page')
   }
-  
+
   jQuery('.age-verefication a').on('click', function (e) {
     e.preventDefault()
     console.log(jQuery(e.target).attr('href'));
@@ -216,10 +217,10 @@
     } else {
       setCookie( 'ageVerification', 'submited', 7 );
       jQuery('.age-verefication').fadeOut();
+      jQuery("body").removeClass('fixed-page')
     }
 
   })
-  if(jQuery('.age-verefication')) jQuery("body").addClass('fixed-page')
 
-  
+  console.log(getCookie('ageVerification') !== 'submited');
 })( jQuery );
