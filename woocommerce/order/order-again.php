@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Order again button
  *
@@ -12,12 +13,12 @@
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 3.5.0
+ * @version 7.8.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 ?>
 
 <p class="order-again">
-	<a href="<?php echo esc_url( $order_again_url ); ?>" class="button"><?php esc_html_e( 'Order again', 'woocommerce' ); ?></a>
+	<a href="<?php echo esc_url($order_again_url); ?>" class="button"><?php esc_html_e('Order again', 'woocommerce'); ?></a>
 </p>

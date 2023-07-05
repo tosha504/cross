@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Displayed when no products are found matching the current query
  *
@@ -12,10 +13,10 @@
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 2.0.0
+ * @version 7.8.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 ?>
-<p class="woocommerce-info woocommerce-no-products-found"><?php esc_html_e( 'No products were found matching your selection.', 'woocommerce' ); ?></p>
+<p class="woocommerce-info woocommerce-no-products-found"><?php esc_html_e('No products were found matching your selection.', 'woocommerce'); ?></p>
