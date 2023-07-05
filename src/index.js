@@ -180,7 +180,7 @@
       //sets the coookie to five minutes if the popup is submited (whole numbers = days)
       setCookie( 'popupCookie', 'submited', 7 );
     });
-	}, 5000);
+  }, 5000);
 
   function getCookie(cname) {
   var name = cname + "=";
@@ -222,5 +222,4 @@
 
   })
 
-  console.log(getCookie('ageVerification') !== 'submited');
 })( jQuery );

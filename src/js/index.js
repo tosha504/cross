@@ -203,5 +203,4 @@ function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-on
       jQuery("body").removeClass('fixed-page');
     }
   });
-  console.log(getCookie('ageVerification') !== 'submited');
 })(jQuery);
