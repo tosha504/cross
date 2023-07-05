@@ -121,6 +121,10 @@
         @media (min-width:$bp3) {
           flex: 0 1 30%;
         }
+
+        .product-card {
+          position: relative;
+        }
       }
     }
   }
